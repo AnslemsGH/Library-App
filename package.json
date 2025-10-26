@@ -1,0 +1,20 @@
+{
+  "name": "library-app",
+  "version": "1.0.0",
+  "description": "An app to manage a library",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon ./index.js"
+  },
+  "author": "Anslem Coelho",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.1.0",
+    "mongodb": "^6.20.0",
+    "pug": "^3.0.3"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  }
+}

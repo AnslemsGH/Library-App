@@ -1,0 +1,15 @@
+extends layout
+
+block layout-content
+  h1 Add New Author
+  form(method="post", action="/admin/authors/add/submit")
+    div
+      label(for="name") Name:
+      input(type="text", id="name", name="name")
+    div
+      label(for="nationality") Nationality:
+      input(type="text", id="nationality", name="nationality")
+    div
+      label(for="birthyear") Birth Year:
+      input(type="text", id="birthyear", name="birthyear")
+    button(type="submit").add-book Add Author

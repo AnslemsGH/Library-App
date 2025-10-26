@@ -1,0 +1,15 @@
+extends layout
+
+block layout-content
+  h1 Add New Book
+  form(method="post", action="/admin/books/add/submit")
+    div
+      label(for="title") Title:
+      input(type="text", id="title", name="title")
+    div
+      label(for="author") Author:
+      input(type="text", id="author", name="author")
+    div
+      label(for="genre") Genre:
+      input(type="text", id="genre", name="genre")
+    button(type="submit").add-book Add Book

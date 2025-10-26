@@ -1,0 +1,16 @@
+extends layout
+
+block layout-content
+  h1 Edit Book
+  form(method="post", action="/admin/books/edit/submit")
+    input(type="hidden", name="bookId", value=book._id)
+    div
+      label(for="title") Title:
+      input(type="text", id="title", name="title", placeholder=book.title)
+    div
+      label(for="author") Author:
+      input(type="text", id="author", name="author", placeholder=book.author)
+    div
+      label(for="genre") Genre:
+      input(type="text", id="genre", name="genre", placeholder=book.genre)
+    button(type="submit").add-book Update Book

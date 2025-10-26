@@ -1,0 +1,13 @@
+extends layout
+
+block layout-content
+  h1 ALL AUTHORS
+  a.add-book(href="/admin/authors/add") Add New Author
+
+  ul
+    each author in menu
+      li.book-item
+        a.book-link(href=author.name) #{author.name}
+        form.delete-form(method="get", action="/admin/authors/delete")
+          input(type="hidden", name="authorId", value=author._id)
+          button(type="submit") Delete

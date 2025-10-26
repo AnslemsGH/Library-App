@@ -1,0 +1,15 @@
+doctype html 
+html(lang="en")
+ head 
+  meta(charset="utf-8")
+  title #{title} | Library App
+  link(rel="stylesheet", href="/styles.css")
+ body
+  header#header 
+   h2#site-name  
+    a(href="/") Toronto Library Admin
+   include partials/nav.pug
+  main#main 
+    block layout-content
+  footer#footer 
+    p &copy; Copyright Anslem,2025
