@@ -1,14 +1,16 @@
 import express from "express";
+import cors from "cors";
 import path from "path";
 import { MongoClient, ObjectId } from "mongodb";
+
+const app = express();
+app.use(cors());
 
 const dbUrl = "mongodb+srv://AnslemAssignment:anslem@webdevclass.0kw2y5y.mongodb.net/?appName=WebDevClass";
 const db = new MongoClient(dbUrl).db("Library");
 
 const __dirname = import.meta.dirname;
 
-
-const app = express();
 const port = process.env.PORT || "8888";
 
 app.set("views", path.join(__dirname, "templates"));
@@ -116,6 +118,28 @@ app.get("/admin/authors/delete", async (request, response) => {
     await deleteAuthor(id);
     response.redirect("/admin/authors");
 
+});
+
+
+//---API ENDPOINTS-----------//
+app.get("/api/books", async (req, res) => {
+  try {
+    const books = await getBooks();
+    res.json(books);
+  } catch (err) {
+    console.error("Error fetching books for API:", err);
+    res.status(500).json({ error: "Failed to fetch books" });
+  }
+});
+
+app.get("/api/authors", async (req, res) => {
+  try {
+    const authors = await getAuthors();
+    res.json(authors);
+  } catch (err) {
+    console.error("Error fetching authors for API:", err);
+    res.status(500).json({ error: "Failed to fetch authors" });
+  }
 });
 
 
